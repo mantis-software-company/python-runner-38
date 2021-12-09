@@ -8,6 +8,9 @@ RUN apt-get update && \
 
 COPY ./entrypoint.sh /.
 
+RUN \
+    chmod a+x /entrypoint.sh \
+
 CMD [ "/entrypoint.sh" ]
 
 
