@@ -11,7 +11,7 @@ RUN groupadd -r ${APP_USER} && useradd --no-log-init -r -g ${APP_USER} ${APP_USE
 COPY ./entrypoint.sh /.
 USER ${APP_USER}:${APP_USER}
 
-CMD [ "entrypoint.sh" ]
+CMD [ "/entrypoint.sh" ]
 
 
 
