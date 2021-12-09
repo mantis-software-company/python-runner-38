@@ -1,6 +1,6 @@
 #!/bin/sh
 python3 -m venv /app/venv
-. /app/venv/bin/activate
+source /app/venv/bin/activate
 
 if [[ -n "$REQUIREMENTS_PACKAGES" ]]
 then
