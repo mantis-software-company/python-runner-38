@@ -17,5 +17,5 @@ if [[ -n "$STARTUP_COMMAND" ]]
 then
     $STARTUP_COMMAND
 else
-    $PACKAGE_NAME
+     ${PACKAGE_NAME//-/_}
 fi
