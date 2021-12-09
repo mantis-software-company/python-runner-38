@@ -14,6 +14,7 @@ else
     pip install $PACKAGE_NAME==$PACKAGE_VERSION
 fi
 if [[ -n "$STARTUP_COMMAND" ]]
+then
     $STARTUP_COMMAND
 else
     $PACKAGE_NAME
