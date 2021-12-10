@@ -4,7 +4,7 @@ WORKDIR /app
 
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends build-essential && apt-get install -y python3-venv
+    apt-get install -y --no-install-recommends build-essential && apt-get install -y python3-venv && python -m pip install --upgrade pip && pip install wheel 
 
 COPY ./entrypoint.sh /.
 
