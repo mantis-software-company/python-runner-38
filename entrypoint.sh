@@ -30,7 +30,7 @@ if [[ -n "$PACKAGE_VERSION" ]]
 then
     pip install $PACKAGE_NAME==$PACKAGE_VERSION
 else
-    pip install $PACKAGE_NAME==$PACKAGE_VERSION
+    pip install $PACKAGE_NAME
 fi
 if [[ -n "$STARTUP_COMMAND" ]]
 then
