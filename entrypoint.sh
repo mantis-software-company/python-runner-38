@@ -1,8 +1,6 @@
-#!/bin/bash
+#!/bin/bash -x
 
 python3 -m venv /app/venv
-source /app/venv/bin/activate
-
 echo "[pypi]" > /app/venv/.pypirc
 
 if [[ -n "$REPOSITORY_URL" ]]
@@ -19,6 +17,11 @@ if [[ -n "$REPOSITORY_PASSWORD" ]]
 then
     echo "password: $REPOSITORY_PASSWORD" >> /app/venv/.pypirc
 fi
+
+cd /app
+source /app/venv/bin/activate
+python -m pip install --upgrade pip 
+pip install wheel 
 
 
 if [[ -n "$REQUIREMENTS_PACKAGES" ]]
