@@ -9,4 +9,4 @@ Run custom python library in the container
 - REQUIREMENTS_PACKAGES: Your needs packages with space sperator (optional)
 - STARTUP_COMMAND
 - REPOSITORY_URL (without trailing slash)
-- REPOSITORY_HOST
+- REPOSITORY_HOST: Hostname of repository.
