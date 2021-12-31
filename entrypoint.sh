@@ -1,21 +1,13 @@
 #!/bin/bash -x
 
 python3 -m venv /app/venv
-echo "[pypi]" > /app/venv/.pypirc
 
 if [[ -n "$REPOSITORY_URL" ]]
 then
-    echo "repository: $REPOSITORY_URL" >> /app/venv/.pypirc
-fi
-
-if [[ -n "$REPOSITORY_USERNAME" ]]
-then
-    echo "username: $REPOSITORY_USERNAME" >> /app/venv/.pypirc
-fi
-
-if [[ -n "$REPOSITORY_PASSWORD" ]]
-then
-    echo "password: $REPOSITORY_PASSWORD" >> /app/venv/.pypirc
+    echo "[global]" > /app/venv/pip.conf
+    echo "index = $REPOSITORY_URL/" >> /app/venv/pip.conf
+    echo "index-url = $REPOSITORY_URL/simple" >> /app/venv/pip.conf
+    echo "trusted-host = $REPOSITORY_HOST" >> /app/venv/pip.conf
 fi
 
 cd /app
