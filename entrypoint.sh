@@ -36,9 +36,9 @@ fi
 
 if [[ -n "$STARTUP_COMMAND" ]]
 then
-    /app/venv/bin/"$STARTUP_COMMAND"
+    /app/venv/bin/$STARTUP_COMMAND
 else
-     /app/venv/bin/"$PACKAGE_NAME"
+     /app/venv/bin/$PACKAGE_NAME
 fi
 
 
