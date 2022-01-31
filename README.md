@@ -10,3 +10,5 @@ Run custom python library in the container
 - STARTUP_COMMAND
 - REPOSITORY_URL (without trailing slash)
 - REPOSITORY_HOST: Hostname of repository.
+- PRE_START_SCRIPT: Path of pre start script
+- POST_START_SCRIPT: Path of post start script
