@@ -10,26 +10,39 @@ then
     echo "trusted-host = $REPOSITORY_HOST" >> /app/venv/pip.conf
 fi
 
-cd /app
-source /app/venv/bin/activate
-python -m pip install --upgrade pip 
-pip install wheel 
+
+/app/venv/bin/python -m pip install --upgrade pip
+/app/venv/bin/pip install wheel
 
 
 if [[ -n "$REQUIREMENTS_PACKAGES" ]]
 then
-    pip install $REQUIREMENTS_PACKAGES
+    /app/venv/bin/pip install "$REQUIREMENTS_PACKAGES"
 fi
 
 if [[ -n "$PACKAGE_VERSION" ]]
 then
-    pip install $PACKAGE_NAME==$PACKAGE_VERSION
+    /app/venv/bin/pip install "$PACKAGE_NAME"=="$PACKAGE_VERSION"
 else
-    pip install $PACKAGE_NAME
+    /app/venv/bin/pip install "$PACKAGE_NAME"
 fi
+
+
+if [[ -n "$PRE_START_SCRIPT" ]]
+then
+    . $PRE_START_SCRIPT
+fi
+
+
 if [[ -n "$STARTUP_COMMAND" ]]
 then
-    $STARTUP_COMMAND
+    /app/venv/bin/"$STARTUP_COMMAND"
 else
-     ${PACKAGE_NAME//-/_}
+     /app/venv/bin/"$PACKAGE_NAME"
+fi
+
+
+if [[ -n "$POST_START_SCRIPT" ]]
+then
+    . $POST_START_SCRIPT
 fi
