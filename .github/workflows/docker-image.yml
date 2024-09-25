@@ -27,8 +27,8 @@ jobs:
         name: Login to DockerHub
         uses: docker/login-action@v1 
         with:
-          username: mantissoftware
-          password: ${{ secrets.DOCKER_REPO }}
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PASS }}
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
@@ -50,6 +50,6 @@ jobs:
         name: Push Readme to Docker Hub
         uses: peter-evans/dockerhub-description@v2
         with:
-          username: mantissoftware
+          username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PASS }}
           repository: mantissoftware/python38-runner
