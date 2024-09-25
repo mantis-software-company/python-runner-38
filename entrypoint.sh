@@ -1,5 +1,10 @@
 #!/bin/bash -x
 
+if [[ -n "$OS_DEPENDENCIES" ]]
+then
+    apt install -y "$OS_DEPENDENCIES"
+fi
+
 python3 -m venv /app/venv
 
 if [[ -n "$REPOSITORY_URL" ]]
